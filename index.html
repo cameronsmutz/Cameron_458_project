@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+    <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+
+<body>
+
+    <!-- sidebar -->
+    <div id="info">
+        <div id="names">
+            Cameron McTee and Cameron Smutz
+        </div>
+        <div id="title">
+            Non-English Language Groups in Seattle
+        </div>
+        <p id="placename">Seattle</p>
+        <div id="count" class="card">
+            <h5 id="desc"> neighborhood name</h5>
+            <p id="county-count">Population in neighborhood</p>
+        </div>
+        <div id="county-chart"></div>
+        <div id="footer">
+            The map represents the population of foreign language speakers sorted by what language group on the census they belong to.
+            The dots represent a person in the given neighborhood that speaks a specified language, as defined by the ACS data. 
+            This does not include population that is logged as "Speaks (language) Not Very Well".
+            
+            Data Sources: American Community Survey (ACS) 2022 5-year estimates, Seattle Open Data
+        </div>
+    </div>
+
+    <!-- mainwindow -->
+
+    <div id="map"></div>
+    <div class="legend" id="pop-legend">
+        <h3>Language Groups</h3>
+        <h4>1 dot = 1 person</h4>
+        <h5>Click on the dots to toggle that specific color on the map</h5>
+        <div data-layer="dots-api"><span style="background-color: #ed4343"></span> Asian and pacific island languages</div>
+        <div data-layer="dots-indo_european"><span style="background-color: #ffaa22"></span> indo-European</div>
+        <div data-layer="dots-spanish"><span style="background-color: #2b64ff"></span> Spanish </div>
+        <div data-layer="dots-other"><span style="background-color: #009f10"></span> Other </div>
+    </div>
+
+    <script>
+        var db = new Map();
+        var array = Array.from(db);
+        console.log("db", db);
+
+        var chartmargin = { top: 10, right: 30, bottom: 30, left: 60 },
+            chartwidth = 400 - chartmargin.left - chartmargin.right,
+            chartheight = 350 - chartmargin.top - chartmargin.bottom;
+
+        // create svg element for a line chart
+        var chart = d3.select("#county-chart")
+            .append("svg")
+            .attr("width", chartwidth + chartmargin.left + chartmargin.right)
+            .attr("height", chartheight + chartmargin.top + chartmargin.bottom)
+            .append("g").attr('class', 'line')
+            .attr("transform", "translate(" + chartmargin.left + "," + chartmargin.top + ")");
+
+        var xScale = d3.scaleBand().range([0, chartwidth]).padding(0.1);
+        var yScale = d3.scaleLinear().range([chartheight, 0]);
+
+        //var y = d3.scaleLinear().range([ chartheight, 0 ]);
+        //var yAxis = d3.axisLeft().scale(y);
+        //chart.append("g").attr("class", "myYaxis")
+
+        //Main map comes here.       
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY3NtdXR6eSIsImEiOiJjbTFqamx6YjMxMHUwMmpweHFodGljY2J1In0.HMxiHUZ8QXW-J1rPNZgzPg';
+
+        const mymap = new mapboxgl.Map({
+
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v10',
+            projection: 'mercator',
+            center: [-122.337072, 47.626212],
+            zoom: 11,
+            minZoom: 10
+        });
+
+        mymap.on('load', () => {
+            mymap.addSource('cra_layer', {
+                type: 'geojson',
+                data: 'cra_layer.geojson'
+            });
+            mymap.addSource('indo_european', {
+                type: 'geojson',
+                data: 'indo_european.geojson'
+            });
+            mymap.addSource('spanish', {
+                type: 'geojson',
+                data: 'spanish.geojson'
+            });
+            mymap.addSource('api', {
+                type: 'geojson',
+                data: 'api.geojson'
+            });
+            mymap.addSource('other', {
+                type: 'geojson',
+                data: 'other.geojson'
+            });
+
+            
+            mymap.addLayer(
+                {
+                    id: 'lang_layer',
+                    type: 'fill',
+                    source: 'cra_layer',
+                    paint: {
+                        'fill-color': 'white',
+                        'opacity': 1.0
+                    }
+                },
+                'waterway-label'
+            );
+            mymap.addLayer(
+                {
+                    id: 'lang_layer_outline',
+                    type: 'line',
+                    source: 'cra_layer',
+                    paint: {
+                        'line-color': '#000000',
+                        'line-width': 1.5
+                    }
+                }
+            );
+            
+            mymap.addLayer({
+                id: 'dots-api',
+                type: 'circle',
+                source: 'api',
+                layout: {
+                    visibility: 'visible' // Default to visible
+                },
+                paint: {
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'], ['zoom'],
+                        11, 0.75,   
+                        25, 8  
+                    ],
+                    'circle-stroke-width': 0,
+                    'circle-color': '#ed4343',
+                    'circle-opacity': 0.8
+                }
+            });
+            mymap.addLayer({
+                id: 'dots-indo_european',
+                type: 'circle',
+                source: 'indo_european',
+                layout: {
+                    visibility: 'visible' // Default to visible
+                },
+                paint: {
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'], ['zoom'],
+                        11, 0.75,   
+                        25, 8    
+                    ],
+                    'circle-stroke-width': 0,
+                    'circle-color': '#ffaa22',
+                    'circle-opacity': 0.8
+                }
+            });
+            mymap.addLayer({
+                id: 'dots-spanish',
+                type: 'circle',
+                source: 'spanish',
+                layout: {
+                    visibility: 'visible' // Default to visible
+                },
+                paint: {
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'], ['zoom'],
+                        11, 0.75,  
+                        25, 8   
+                    ],
+                    'circle-stroke-width': 0,
+                    'circle-color': '#2b64ff',
+                    'circle-opacity': 0.8
+                }
+            });
+            mymap.addLayer({
+                id: 'dots-other',
+                type: 'circle',
+                source: 'other',
+                layout: {
+                    visibility: 'visible' // Default to visible
+                },
+                paint: {
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'], ['zoom'],
+                        11, 0.75,  
+                        25, 8    
+                    ],
+                    'circle-stroke-width': 0,
+                    'circle-color': 'green',
+                    'circle-opacity': 0.8
+                }
+            });
+
+            
+
+        });
+
+        document.querySelectorAll('#pop-legend div').forEach((legendItem) => {
+                legendItem.addEventListener('click', () => {
+                    const layerId = legendItem.getAttribute('data-layer');
+                    const visibility = mymap.getLayoutProperty(layerId, 'visibility');
+
+                    if (visibility === 'visible') {
+                        // Hide the layer
+                        mymap.setLayoutProperty(layerId, 'visibility', 'none');
+                        legendItem.style.opacity = 0.5; // Dim the legend item
+                    } else {
+                        // Show the layer
+                        mymap.setLayoutProperty(layerId, 'visibility', 'visible');
+                        legendItem.style.opacity = 1; // Restore legend item opacity
+                    }
+                });
+            });
+
+        // D3 line chart comes here:
+        d3.json('cra_layer.geojson').then(function (data) {
+            console.log('cra_layer', data);
+
+            var setDb = function (data) {
+                data.forEach(function (d) {
+                    db.set(d.properties.OBJECTID, [
+                        { "x": 'API', "y": +d.properties["languages_Neighborhoods_9111407402350369811_Speak Asian and Pacific Island Languages"] },
+                        { "x": 'Indo-European', "y": +d.properties["languages_Neighborhoods_9111407402350369811_Speak Other Indo-European Languages"] },
+                        { "x": 'Spanish', "y": +d.properties["languages_Neighborhoods_9111407402350369811_Speak Spanish"] },
+                        { "x": 'other', "y": +d.properties["languages_Neighborhoods_9111407402350369811_Speak Other Languages"] }
+                    ]);
+                });
+            };
+
+            setDb(data.features);
+
+            console.log(db);
+
+            chart
+                .append('g')
+                .attr('class', 'x-axis')
+                .attr('transform', `translate(0, ${chartheight})`);
+
+            chart.append('g').attr('class', 'y-axis');
+
+            // change info window on hover
+            mymap.on('mousemove', (event) => {
+                //identify the layer with mouse event
+                var features = mymap.queryRenderedFeatures(event.point, { layers: ['lang_layer'] });
+
+                document.getElementById('desc').innerHTML = features.length
+                    ? `<h3>${features[0].properties["languages_Neighborhoods_9111407402350369811_Neighborhood Name"]}</h3>`
+                    : `<p>Hover over a neighborhood!</p>`;
+
+
+                document.getElementById('county-count').innerHTML = features.length
+                    ? `<h3>${features[0].properties["languages_Neighborhoods_9111407402350369811_Total Households"]}</h3>`
+                    : `<p>Total Number of Speakers</p>`;
+                //if(features.length){
+                var lines = db.get(features[0].properties.OBJECTID);
+                //if(lines){
+                xScale.domain(lines.map(d => d.x));
+                yScale.domain([0, d3.max(lines, d => d.y)])
+
+                d3.select('.x-axis').transition().duration(500).call(d3.axisBottom(xScale));
+                d3.select('.y-axis').transition().duration(500).call(d3.axisLeft(yScale));
+
+                chart.selectAll('.bar')
+                    .data(lines)
+                    .join('rect')
+                    .attr('class', 'bar')
+                    .transition().duration(500)
+                    .attr('x', d => xScale(d.x))
+                    .attr('width', xScale.bandwidth())
+                    .attr('y', d => yScale(d.y))
+                    .transition().duration(500)
+                    .attr('height', d => chartheight - yScale(d.y))
+                    .attr('fill', d => {
+                        const colors = {
+                            "API": "#ff0000",
+                            "Indo-European": "#fc9d03",
+                            "Spanish": "#0044ff",
+                            "other": "#009f10"
+                        };
+                        return colors[d.x];
+                    });
+            });
+        })
+
+    </script>
+</body>
+
+</html>

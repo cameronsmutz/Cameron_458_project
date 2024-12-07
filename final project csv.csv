@@ -1,0 +1,54 @@
+﻿OBJECTID,CRA ID,Neighborhood ID,Community Reporting Area Name,Neighborhood Names,Neighborhood District Name,Area Acres,Area Square Miles,SE_ANNO_CAD_DATA,Display Name,water,Shape__Area,Shape__Length
+1,1.1,1,Arbor Heights,"Arbor Heights, Brace Point, Endolyne, Arroyo",Southwest,782.8257892,1.2231653,System.Byte[],CRA - Arbor Heights,0,34099891.35,27087.34344
+3,1.2,1,Fauntleroy/Seaview,"Fauntleroy, Gatewood, Morgan Junction, Lincoln Park, Seaview, Fairmount Park",Southwest,1396.262454,2.18166008,System.Byte[],CRA - Fauntleroy-Seaview,0,60821192.53,48208.62071
+5,1.3,1,West Seattle Junction/Genesee Hill,"Seaview, Fairmount Park, Morgan Junction, Genesee Hill, Belvidere, West Seattle Junction, Alaska Junction, Admiral",Southwest,1449.328856,2.26457634,System.Byte[],CRA - West Seattle Junction-Genesee Hill,0,63132764.93,38760.76584
+6,1.4,1,Alki/Admiral,"Alki, Admiral",Southwest,896.066891,1.40010452,System.Byte[],CRA - Alki-Admiral,0,39032673.76,50365.12551
+8,2.1,2,North Delridge,"North Delridge, Pigeon Point, Avalon, Luna Park, Harbor Island",Delridge Neighborhoods,1612.818519,2.52002894,System.Byte[],CRA - North Delridge,0,70254374.73,64633.66105
+10,2.2,2,High Point,"High Point, Delridge",Delridge Neighborhoods,553.7927575,0.86530118,System.Byte[],CRA - High Point,0,24123212.49,22688.53514
+11,2.3,2,Riverview,"Riverview, Delridge",Delridge Neighborhoods,1012.108476,1.58141949,System.Byte[],CRA - Riverview,0,44087445.2,39019.3474
+13,2.4,2,Roxhill/Westwood,"Roxhill, Westwood, South Delridge, White Center",Delridge Neighborhoods,978.2208393,1.52847006,System.Byte[],CRA - Roxhill-Westwood,0,42611299.82,33460.2702
+14,2.5,2,Highland Park,"Highland Park, Westwood, White Center, South Delridge",Delridge Neighborhoods,961.3948221,1.50217941,System.Byte[],CRA - Highland Park,0,41878358.44,30552.29767
+15,3.1,3,South Park,South Park,Greater Duwamish,618.1191938,0.96581124,System.Byte[],CRA - South Park,0,26925272.1,32476.98226
+17,3.2,3,Georgetown,Georgetown,Greater Duwamish,1186.343497,1.85366171,System.Byte[],CRA - Georgetown,0,51677122.73,44978.75359
+19,3.3,3,Duwamish/SODO,"Duwamish, SODO, Pioneer Square",Greater Duwamish,2345.536842,3.66490132,System.Byte[],CRA - Duwamish-SODO,0,102171584.8,53946.37352
+21,3.4,3,South Beacon Hill/NewHolly,"South Beacon Hill, NewHolly, Holly Park",Greater Duwamish,1560.238425,2.43787254,System.Byte[],CRA - South Beacon Hill-New Holly,0,67963985.75,44404.56641
+22,3.5,3,Beacon Hill,Beacon Hill,Greater Duwamish,833.4048192,1.30219503,System.Byte[],CRA - Beacon Hill,0,36303113.96,26384.82098
+23,3.6,3,North Beacon Hill/Jefferson Park,"North Beacon Hill, Jefferson Park",Greater Duwamish,1226.073139,1.91573928,System.Byte[],CRA - North Beacon Hill-Jefferson Park,0,53407745.91,37206.20452
+24,4.1,4,Rainier Beach,"Rainier Beach, Rainier View, Lake Ridge, Dunlap",Southeast,1363.944198,2.13116281,System.Byte[],CRA - Rainier Beach,0,59413409.23,55048.08974
+26,4.2,4,Columbia City,"Columbia City, Brighton, Mt. Baker, Lakewood, Genesee, Hillman City",Southeast,1297.746085,2.02772826,System.Byte[],CRA - Columbia City,0,56529819.45,45554.83305
+28,4.3,4,Seward Park,"Seward Park, Hillman City",Southeast,1012.376168,1.58183776,System.Byte[],CRA - Seward Park,0,44099105.9,41521.38267
+30,4.4,4,Mt. Baker/North Rainier,"Mt. Baker, North Rainier, Atlantic",Southeast,629.5754287,0.98371161,System.Byte[],CRA - Mt. Baker-North Rainier,0,27424305.71,29618.21117
+32,5.1,5,Madrona/Leschi,"Madrona, Leschi, Harrison/Denny-Blaine",Central,824.9741812,1.28902216,System.Byte[],CRA - Madrona-Leschi,0,35935875.36,40579.15947
+34,5.2,5,Judkins Park,"Judkins Park, Central Area, Little Saigon, Atlantic",Central,211.4823966,0.33044124,System.Byte[],CRA - Judkins Park,0,9212173.183,14319.103
+35,5.3,5,Central Area/Squire Park,"Central Area, Mann, Minor, Squire Park",Central,849.4535709,1.3272712,System.Byte[],CRA - Central Area-Squire Park,0,37002197.51,28532.0236
+36,6.1,6,First Hill,"First Hill, Yesler Terrace, Squire Park",East,438.8610714,0.68572042,System.Byte[],CRA - First Hill,0,19116788.27,22011.34747
+37,6.2,6,Capitol Hill,"Capitol Hill, Pike/Pine, Broadway, First Hill",East,433.1726114,0.67683221,System.Byte[],CRA - Capitol Hill,0,18868998.96,18947.27005
+38,6.3,6,North Capitol Hill,"North Capitol Hill, Capitol Hill, North Broadway",East,283.568819,0.44307628,System.Byte[],CRA - North Capitol Hill,0,12352257.76,17921.50141
+39,6.4,6,Miller Park,"Madison-Miller, Miller Park, Capitol Hill, Stevens",East,364.5946119,0.56967908,System.Byte[],CRA - Miller Park,0,15881741.33,18076.67494
+40,6.5,6,Madison Park,"Madison Park, Broadmoor, Washington Park, Harrison/Denny-Blaine",East,637.0599953,0.99540624,System.Byte[],CRA - Madison Park,0,27750333.4,36285.84889
+42,7.1,7,Montlake/Portage Bay,"Montlake, Portage Bay, Interlaken Park, Eastlake, Roanoke Park, Washington Park",Northeast,839.5273986,1.31176156,System.Byte[],CRA - Montlake-Portage Bay,0,36569813.47,51754.90424
+44,7.2,7,University District,"University District, Cowen Park, Ravenna",Northeast,955.9250216,1.49363285,System.Byte[],CRA - University District,0,41640093.95,44323.28092
+46,7.3,7,Ravenna/Bryant,"Ravenna, Bryant, Roosevelt, View Ridge, Hawthorne Hills, Windermere, University District",Northeast,1638.009982,2.5593906,System.Byte[],CRA - Ravenna-Bryant,0,71351714.79,45751.13625
+47,7.4,7,Wedgwood/View Ridge,"Wedgwood, View Ridge, Bryant, Matthews Beach",Northeast,1507.466931,2.35541708,System.Byte[],CRA - Wedgwood-View Ridge,0,65665259.54,41990.56127
+49,7.5,7,Laurelhurst/Sand Point,"Laurelhurst, Windermere, Sand Point, Hawthorne Hills, Magnuson Park",Northeast,1400.958761,2.18899806,System.Byte[],CRA - Laurelhurst-Sand Point,0,61025763.65,54081.36233
+51,8.1,8,Northgate/Maple Leaf,"Maple Leaf, Northgate, Pinehurst",North,1143.757068,1.78712042,System.Byte[],CRA - Northgate-Maple Leaf,0,49822057.87,31811.2761
+52,8.2,8,Olympic Hills/Victory Heights,"Lake City, Victory Heights, Olympic Hills, Pinehurst, Jackson Park",North,1394.052727,2.17820739,System.Byte[],CRA - Olympic Hills-Victory Heights,0,60724936.76,39872.34884
+53,8.3,8,Cedar Park/Meadowbrook,"Cedar Park, Lake City, Meadowbrook, Matthews Beach",North,1205.328764,1.88332619,System.Byte[],CRA - Cedar Park-Meadowbrook,0,52504120.93,46764.10913
+55,9.1,9,Broadview/Bitter Lake,"Broadview, Bitter Lake",Northwest,1476.809004,2.30751407,System.Byte[],CRA - Broadview-Bitter Lake,0,64329800.22,39160.71832
+57,9.2,9,Licton Springs,Licton Springs,Northwest,525.5491107,0.82117049,System.Byte[],CRA - Licton Springs,0,22892919.26,20382.27034
+58,9.3,9,Greenwood/Phinney Ridge,"Greenwood, Phinney Ridge, Woodland Park, Crown Hill",Northwest,1536.74881,2.40117002,System.Byte[],CRA - Greenwood-Phinney Ridge,0,66940778.18,41036.23493
+59,9.4,9,Green Lake,"Green Lake, Meridian, Roosevelt, Woodland Park",Northwest,1326.106822,2.07204191,System.Byte[],CRA - Green Lake,0,57765213.15,33315.08615
+60,9.5,9,Haller Lake,"Haller Lake, Pinehurst",Northwest,1248.538224,1.95084098,System.Byte[],CRA - Haller Lake,0,54386325.06,35908.6321
+61,10.1,10,North Beach/Blue Ridge,"Crown Hill, North Beach, Blue Ridge",Ballard,1284.417549,2.00690242,System.Byte[],CRA - North Beach-Blue Ridge,0,55949228.42,39618.16863
+63,10.2,10,Whittier Heights,"Whittier Heights, Loyal Heights, Crown Hill",Ballard,689.2657711,1.07697777,System.Byte[],CRA - Whittier Heights,0,30024416.99,23936.73329
+64,10.3,10,Sunset Hill/Loyal Heights,"Sunset Hill, Golden Gardens, Loyal Heights, Shilshole",Ballard,1041.209163,1.62688932,System.Byte[],CRA - Sunset Hill-Loyal Heights,0,45355071.15,42257.76661
+66,10.4,10,Ballard,"Ballard, West Woodland, Adams",Ballard,503.5457805,0.78679028,System.Byte[],CRA - Ballard,0,21934454.19,23089.65867
+70,11.2,11,Wallingford,"Wallingford, Meridian, Northlake, University District",Lake Union,809.6012042,1.26500188,System.Byte[],CRA - Wallingford,0,35266228.46,30318.54525
+72,11.3,11,Cascade/Eastlake,"South Lake Union, Eastlake, Cascade, Denny Triangle",Lake Union,721.635586,1.1275556,System.Byte[],CRA - Cascade-Eastlake,0,31434446.13,36327.11066
+74,12.1,12,Magnolia,"Magnolia, Discovery Park, Briarcliff, Lawton Park",Magnolia/Queen Anne,1959.381096,3.06153296,System.Byte[],CRA - Magnolia,0,85350640.56,49184.54259
+76,12.2,12,Interbay,Interbay,Magnolia/Queen Anne,1232.751616,1.9261744,System.Byte[],CRA - Interbay,0,53698660.41,67935.04253
+80,13.1,13,Belltown,"Belltown, Denny Regrade",Downtown,173.3792505,0.27090508,System.Byte[],CRA - Belltown,0,7552400.167,17353.72465
+82,13.2,13,Downtown Commercial Core,"Downtown Commercial Core, West Edge, Central Business District, Pike Place Market, Pioneer Square",Downtown,206.1519184,0.32211237,System.Byte[],CRA - Downtown Commercial Core,0,8979977.567,19104.76712
+84,13.3,13,Pioneer Square/International District,"Pioneer Square, International District, Chinatown, Little Saigon, ID, Chinatown-International District",Downtown,180.8028884,0.28250451,System.Byte[],CRA - Pioneer Square-International District,0,7875773.837,17697.52153
+321,12.3,12,Queen Anne,"Queen Anne, Lower Queen Anne, Uptown, Seattle Center, Westlake",Magnolia/Queen Anne,1882.098639,2.94077912,System.Byte[],CRA - Queen Anne,0,81986441.95,53470.23682
+322,11.1,11,Fremont,"Fremont, Wallingford, Northlake",Lake Union,1882.098639,2.94077912,System.Byte[],CRA - Fremont,0,38516224.58,38676.15144
